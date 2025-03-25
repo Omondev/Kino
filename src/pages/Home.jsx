@@ -9,7 +9,7 @@ function Home() {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-   
+
     useEffect(() => {
         const loadPopularMovies = async () => {
             setLoading(true);
@@ -19,7 +19,7 @@ function Home() {
                 setMovies(popularMovies);
             } catch (err) {
                 console.error(err);
-    
+
             } finally {
                 setLoading(false);
             }
@@ -28,7 +28,7 @@ function Home() {
         loadPopularMovies();
     }, []);
 
-    
+
     const handleSearch = async (e) => {
         e.preventDefault();
         if (!searchQuery.trim()) return;
@@ -59,7 +59,7 @@ function Home() {
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <button type="submit" className="search-button">
-                    Search
+                    Searching
                 </button>
             </form>
 
