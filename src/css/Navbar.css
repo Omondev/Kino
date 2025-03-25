@@ -1,47 +1,92 @@
+
+
 .navbar {
-    background-color: #000000;
-    padding: 1rem 2rem;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 30px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand a {
+    font-size: 1.8rem;
     font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand a:hover {
+    color: #4CAF50;
 }
 
 .navbar-links {
     display: flex;
-    gap: 2rem;
+    gap: 20px;
 }
 
 .nav-link {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.nav-link:hover,
+.nav-link.active {
+    background: #4CAF50;
+    color: #fff;
 }
 
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    .navbar-brand {
-        font-size: 1.2rem;
+    .hamburger {
+        display: block;
     }
 
     .navbar-links {
-        gap: 1rem;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+        display: none;
+    }
+
+    .navbar-links.active {
+        display: flex;
     }
 
     .nav-link {
-        padding: 0.5rem;
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.5rem;
     }
 }
